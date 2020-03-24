@@ -12,6 +12,11 @@ Stack<T>::Stack(): length(0), head(NULL){}
   }
 }*/
 template <class T>
+Stack<T>::~Stack()
+{
+  empty();
+}
+template <class T>
 bool Stack<T>:: isEmpty()
 {
   return (head==NULL);
@@ -21,12 +26,14 @@ void Stack<T>:: empty()
 {
   Node<T>*p;
   
-  while(p!= NULL)
+  while(head!= NULL)
   {
-    p= head;
+     p= head;
     head = head->next;
     delete p;
+
   }
+  length =0;
  // tail = NULL;
 }
 template <class T>
@@ -67,7 +74,7 @@ void Stack<T>:: Pop()
   }
  length--;
 }
-template <class T>
+/*template <class T>
 T Stack<T>:: Top()
 {
   Node<T>* p;
@@ -80,7 +87,7 @@ T Stack<T>:: Top()
   value= p->key;
 
   return value;
-}
+}*/
 template< class T>
 void Stack<T>:: print()
 {
@@ -93,4 +100,17 @@ void Stack<T>:: print()
    // cout<<endl;
    
   }
+}
+template< class T>
+T Stack<T>::Top()
+{  
+  if(head!=NULL)
+    return head->key;
+  else
+    cout<<"Empty Stack"<< endl; 
+}
+template< class T>
+int Stack<T>::count()
+{
+  return length;
 }

@@ -20,6 +20,7 @@ class Stack   // LIFO
        void copy(const Stack & other);
   public:
        Stack ();
+       ~Stack();
        Stack (const Stack & other);
        void Pop();
        void Push(T item);
