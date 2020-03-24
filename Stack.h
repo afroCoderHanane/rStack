@@ -5,7 +5,7 @@ using namespace std;
 template<class T>
 struct Node
 {
-  Node<T>* next;
+  Node* next;
   T key;
 };
 
