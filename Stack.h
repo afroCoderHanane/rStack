@@ -16,6 +16,8 @@ class Stack   // LIFO
        Node<T> * head;
        //Node<T> * tail;
        int length;
+  protected:
+       void copy(const Stack & other);
   public:
        Stack ();
        Stack (const Stack & other);
