@@ -100,8 +100,11 @@ void Stack<T>:: copy(const Stack & other)
       p=  p->next;
     }
     q->next = NULL;
+    delete p;
+    delete q;
   }
     length = other.length;
+    
 }
 template< class T>
 void Stack<T>:: print()
@@ -115,6 +118,7 @@ void Stack<T>:: print()
    // cout<<endl;
    
   }
+  delete p;
 }
 template< class T>
 T Stack<T>::Top()
