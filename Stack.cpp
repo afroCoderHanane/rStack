@@ -1,16 +1,17 @@
 #include"Stack.h"
 template <class T>
 Stack<T>::Stack(): length(0), head(NULL){}
-//template <class T>
-/*Stack<T>::Stack(const Stack & other)
+template <class T>
+Stack<T>::Stack(const Stack & other)
 {
-  if(other.head==NULL)
-  {
-   head == NULL;
-    //tail =NULL;
-    length=0;
-  }
-}*/
+  copy(other);
+}
+template <class T>
+void  Stack<T>::operator=(const Stack & other)
+{ 
+  empty();
+  copy(other);
+}
 template <class T>
 Stack<T>::~Stack()
 {
@@ -36,6 +37,7 @@ void Stack<T>:: empty()
   length =0;
  // tail = NULL;
 }
+
 template <class T>
 void Stack<T>:: Push(T item)
 {
@@ -74,20 +76,33 @@ void Stack<T>:: Pop()
   }
  length--;
 }
-/*template <class T>
-T Stack<T>:: Top()
+template <class T>
+void Stack<T>:: copy(const Stack & other)
 {
-  Node<T>* p;
-  T value;
-  p= head;
-
-  while(p!=NULL)
-   p=p->next;
-
-  value= p->key;
-
-  return value;
-}*/
+ if(other.head==NULL)
+  {
+    head = NULL;
+    length=0;
+  }
+  else
+  {
+    head= new Node<T>;
+    head->key = other.head->key;
+    Node<T>*p = other.head;
+    p= p->next;
+     Node<T>*q = head;
+    while(p!=NULL)
+    {
+      Node<T>*newNode = new Node<T>;
+      newNode->key = p->key;
+      q->next = newNode;
+      q = q->next;
+      p=  p->next;
+    }
+    q->next = NULL;
+  }
+    length = other.length;
+}
 template< class T>
 void Stack<T>:: print()
 {

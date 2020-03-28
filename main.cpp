@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
   //std::cout << "Hello World!\n";
-  Stack<int>l;
+  Stack<int>l; 
   l.Push(5);
   l.Push(50);
   l.Push(4);
@@ -14,6 +14,9 @@ int main() {
   c.Push('b');
   //char b = b.Top();
   c.print();
+  ;
+  Stack<int>l1;//(l);
+  l1 = l;
  // l.Pop();
  // Stack<int>::Top();
  // Stack<int>::Top();
@@ -21,4 +24,9 @@ int main() {
   cout << endl<< "Top is "<< l.Top() <<endl;
   //l.empty();
   l.print();
+  cout<<endl;
+  
+  l1.print();
+  
+
   }
