@@ -1,10 +1,10 @@
 #include <iostream>
-#include"Stack.h"
-#include"Stack.cpp"
+//#include"Stack.h"
+//#include"Stack.cpp"
 using namespace std;
 
 int main() {
-  //std::cout << "Hello World!\n";
+ /* //std::cout << "Hello World!\n";
   Stack<int>l; 
   l.Push(5);
   l.Push(50);
@@ -27,6 +27,6 @@ int main() {
   cout<<endl;
   
   l1.print();
-  
+  */
 
   }

@@ -14,7 +14,7 @@ class Stack   // LIFO
 {
   private:
        Node<T> * head;
-       //Node<T> * tail;
+       Node<T> * top;
        int length;
   protected:
        void copy(const Stack & other);

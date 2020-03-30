@@ -1,22 +1,26 @@
 #include"Stack.h"
 template <class T>
-Stack<T>::Stack(): length(0), head(NULL){}
+Stack<T>::Stack(): length(0), head(NULL), top(NULL){}
+
 template <class T>
 Stack<T>::Stack(const Stack & other)
 {
   copy(other);
 }
+
 template <class T>
 void  Stack<T>::operator=(const Stack & other)
 { 
   empty();
   copy(other);
 }
+
 template <class T>
 Stack<T>::~Stack()
 {
   empty();
 }
+
 template <class T>
 bool Stack<T>:: isEmpty()
 {
@@ -57,9 +61,11 @@ void Stack<T>:: Push(T item)
    p->next = head;
    head = p;
   }
+  top = head;
  length++;
 
 }
+
 template <class T>
 void Stack<T>:: Pop()
 {
@@ -72,10 +78,12 @@ void Stack<T>:: Pop()
    Node<T>* p;
    p = head;
    head = head->next ;
+   top = head;
    delete p;
   }
  length--;
 }
+
 template <class T>
 void Stack<T>:: copy(const Stack & other)
 {
@@ -106,6 +114,7 @@ void Stack<T>:: copy(const Stack & other)
     length = other.length;
     
 }
+
 template< class T>
 void Stack<T>:: print()
 {
@@ -120,14 +129,22 @@ void Stack<T>:: print()
   }
   delete p;
 }
+
 template< class T>
-T Stack<T>::Top()
+T Stack<T> ::Top()
 {  
+ // Node<T> * p;
+  //p = head;
   if(head!=NULL)
-    return head->key;
+    return top->key;
   else
-    cout<<"Empty Stack"<< endl; 
+   { 
+     cout<<"Empty Stack"<< endl; 
+     return 0;
+   }
+ // delete p;
 }
+
 template< class T>
 int Stack<T>::count()
 {
